@@ -101,7 +101,6 @@ def tg_about(message):
 # Обработка текстовых сообщений
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
-    user_id = message.from_user.id
     chat_id = message.chat.id
     user_message = message.text
 
