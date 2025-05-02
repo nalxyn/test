@@ -1,6 +1,6 @@
 from datetime import datetime
 from openai import OpenAI
-import os, telebot, psycopg2
+import telebot, psycopg2
 
 # Конфигурация
 DB_NAME = 'postgres' # Название базы данных
@@ -53,12 +53,12 @@ def get_user_context(user_id):
 def update_user_context(user_id, context):
     conn = db_connection()
     with conn.cursor() as cur:
-        cur.execute('''
+        cur.execute(f'''
             INSERT INTO chat_context (user_id, context, updated_at)
-            VALUES (%s, %s, %s)
+            VALUES ({user_id}, {context}, {datetime.now()})
             ON CONFLICT (user_id) 
             DO UPDATE SET context = EXCLUDED.context, updated_at = EXCLUDED.updated_at
-        ''', (user_id, context, datetime.now()))
+        ''')
     conn.commit()
     conn.close()
 
