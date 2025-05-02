@@ -5,7 +5,8 @@ AI Telegram Bot
 Запуск бота:
 
 pip3 install -r requirements.txt
-python3 mail.py
+
+python3 main.py
 
 Для остановки бота используйте Ctrl+C
 
