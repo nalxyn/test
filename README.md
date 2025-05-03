@@ -1,6 +1,6 @@
 AI Telegram Bot
 
-Бот был протестирван на Linux с использованием Python3, pip и PostgreSQL
+Бот был протестирван на Linux Mint с использованием Python3, pip и PostgreSQL
 
 Запуск бота:
 
